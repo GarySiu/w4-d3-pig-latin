@@ -1,10 +1,10 @@
 require 'sinatra'
-require 'sinatra/reloader' if development?
+require_relative './models/pig_latin'
 
 get '/' do
   "This is a really bad web service for translating words to Pig Latin.\nType in '/[word]' to the url to translate!"
 end
 
 get '/:word' do
-  @word = :word
+  "#{ Piggy.translate params[:word] }"
 end
